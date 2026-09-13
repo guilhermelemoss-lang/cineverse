@@ -36,5 +36,5 @@ O CineVerse é uma aplicação web que permite pesquisar séries, visualizar inf
 
 ## Links
 
-- Aplicação no ar (GitHub Pages): https://guilhermelmoss-lang.github.io/cineverse/
-- Repositório: https://github.com/guilhermelmoss-lang/cineverse
+- Aplicação no ar (GitHub Pages): https://guilhermelemoss-lang.github.io/cineverse/
+- Repositório: https://github.com/guilhermelemoss-lang/cineverse
