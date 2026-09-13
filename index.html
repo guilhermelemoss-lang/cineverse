@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="CineVerse - Explore séries, temporadas e episódios.">
+
+    <title>CineVerse | Explorador de Séries</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="topbar">
+
+        <a href="#" class="logo">
+            ✦ Cine<span>Verse</span>
+        </a>
+
+        <nav>
+            <a href="#descobrir">Descobrir</a>
+            <a href="#sobre">Sobre o projeto</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- SEÇÃO PRINCIPAL -->
+
+        <section class="hero" id="descobrir">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    EXPLORADOR DE ENTRETENIMENTO
+                </p>
+
+                <h1>
+                    Encontre sua próxima
+                    <span>história favorita.</span>
+                </h1>
+
+                <p class="description">
+                    Pesquise séries, conheça novos títulos e descubra
+                    temporadas e episódios em poucos segundos.
+                </p>
+
+
+                <!-- FORMULÁRIO DE BUSCA -->
+
+                <form id="search-form" class="search-box">
+
+                    <label for="search-input" class="sr-only">
+                        Nome da série
+                    </label>
+
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Ex.: Breaking Bad, The Office..."
+                        autocomplete="off"
+                    >
+
+                    <button type="submit">
+                        Buscar ↗
+                    </button>
+
+                </form>
+
+
+                <!-- PESQUISAS RÁPIDAS -->
+
+                <div class="quick-searches">
+
+                    <span>Experimente:</span>
+
+                    <button
+                        type="button"
+                        data-query="Breaking Bad"
+                    >
+                        Breaking Bad
+                    </button>
+
+                    <button
+                        type="button"
+                        data-query="The Office"
+                    >
+                        The Office
+                    </button>
+
+                    <button
+                        type="button"
+                        data-query="Stranger Things"
+                    >
+                        Stranger Things
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ILUSTRAÇÃO -->
+
+            <div class="hero-art" aria-hidden="true">
+
+                <div class="poster poster-one">
+                    SERIES
+                    <strong>TIME</strong>
+                </div>
+
+                <div class="poster poster-two">
+                    WATCH
+                    <strong>NOW</strong>
+                </div>
+
+                <div class="orbit orbit-one"></div>
+
+                <div class="orbit orbit-two"></div>
+
+                <span class="spark spark-one">✦</span>
+
+                <span class="spark spark-two">✧</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        RESULTADOS
+                    </p>
+
+                    <h2 id="section-title">
+                        Sugestões para você
+                    </h2>
+
+                </div>
+
+                <span id="result-count">
+                    Carregando...
+                </span>
+
+            </div>
+
+
+            <div
+                id="status"
+                class="status"
+                role="status"
+                aria-live="polite"
+            >
+                Buscando títulos populares...
+            </div>
+
+
+            <div
+                id="results"
+                class="cards-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- SOBRE O PROJETO -->
+
+        <section class="about" id="sobre">
+
+            <div>
+
+                <p class="eyebrow">
+                    SOBRE O PROJETO
+                </p>
+
+                <h2>
+                    Um pequeno projeto,
+                    uma experiência completa.
+                </h2>
+
+            </div>
+
+            <p>
+                O CineVerse foi desenvolvido com HTML5, CSS3 e JavaScript puro.
+                A aplicação consome a API pública TVmaze, trata erros de busca
+                e organiza os dados em uma interface responsiva.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- JANELA DE DETALHES -->
+
+    <div
+        id="details-modal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="details-title"
+        >
+
+            <button
+                id="close-modal"
+                class="close-modal"
+                aria-label="Fechar detalhes"
+            >
+                &times;
+            </button>
+
+
+            <div id="details-content"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <span>
+            © 2026 CineVerse
+        </span>
+
+        <span>
+            Dados fornecidos por
+            <a
+                href="https://www.tvmaze.com/api"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                TVmaze API
+            </a>
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
