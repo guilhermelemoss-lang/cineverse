@@ -1210,3 +1210,107 @@ footer a {
     }
 
 }
+
+/* ========================================
+   FAVORITOS — CINEVERSE ETAPA 02
+======================================== */
+
+.favorites-section {
+    border-top: 1px solid var(--line);
+    padding-top: 45px;
+    margin-bottom: 35px;
+}
+
+.favorite-actions {
+    margin-top: 14px;
+}
+
+.favorite-button,
+.favorite-refresh {
+    border: 1px solid rgba(166, 108, 255, 0.35);
+    border-radius: 9px;
+    padding: 10px 12px;
+    background: rgba(166, 108, 255, 0.12);
+    color: #e7d9ff;
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.favorite-button:hover,
+.favorite-refresh:hover {
+    background: rgba(166, 108, 255, 0.25);
+    border-color: var(--primary);
+}
+
+.favorite-button.is-saved {
+    color: #ffb7c5;
+    border-color: rgba(255, 130, 160, 0.35);
+    background: rgba(255, 100, 140, 0.08);
+}
+
+.favorite-button:disabled,
+.favorite-refresh:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.favorite-refresh {
+    width: auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+    .favorite-refresh {
+        width: 100%;
+    }
+}
+
+/* SEÇÃO DE FAVORITOS */
+.favorites-section {
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+
+.favorite-actions {
+    margin-top: 12px;
+}
+
+.favorite-button,
+.favorite-refresh {
+    border: 1px solid rgba(166, 108, 255, 0.4);
+    border-radius: 9px;
+    padding: 10px 12px;
+    background: rgba(166, 108, 255, 0.12);
+    color: #e7d9ff;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.favorite-button {
+    width: 100%;
+}
+
+.favorite-button:hover,
+.favorite-refresh:hover {
+    background: rgba(166, 108, 255, 0.25);
+}
+
+.favorite-button.is-saved {
+    color: #ffb7c5;
+    background: rgba(255, 100, 140, 0.1);
+}
+
+.favorite-refresh {
+    white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+    .favorite-refresh {
+        white-space: normal;
+    }
+}

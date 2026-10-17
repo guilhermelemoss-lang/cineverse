@@ -114,7 +114,7 @@ Também é possível utilizar a extensão Live Server no Visual Studio Code.
 
 ## Executar com Docker
 
-Na pasta raiz do projeto, construa a imagem e inicie o container:
+Na raiz do repositório clonado, onde `index.html` está na raiz, construa a imagem e inicie o container:
 
 ```bash
 docker build -t astrinho21/cineverse:latest .
@@ -122,6 +122,12 @@ docker run --rm -p 8080:80 astrinho21/cineverse:latest
 ```
 
 A aplicação ficará disponível em `http://localhost:8080`.
+
+Neste workspace, os arquivos da aplicação estão dentro de `CineVerse/`. Para construir a imagem a partir dele, use:
+
+```bash
+docker build --build-arg APP_DIR=CineVerse -t astrinho21/cineverse:latest .
+```
 
 ## Publicar no Docker Hub
 

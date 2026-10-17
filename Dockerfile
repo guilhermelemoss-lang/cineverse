@@ -1,5 +1,6 @@
 FROM nginx:alpine
 
-COPY CineVerse/ /usr/share/nginx/html/
+ARG APP_DIR=.
+COPY ${APP_DIR}/ /usr/share/nginx/html/
 
 EXPOSE 80
