@@ -44,4 +44,7 @@ describe("Testes do CineVerse", () => {
             vi.unstubAllGlobals();
         }
     });
+        test("Demonstração de falha da CI", () => {
+        expect(1 + 1).toBe(3);
+    });
 });
