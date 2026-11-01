@@ -1,6 +1,7 @@
 FROM nginx:alpine
 
-ARG APP_DIR=.
-COPY ${APP_DIR}/ /usr/share/nginx/html/
+COPY index.html /usr/share/nginx/html/index.html
+COPY styles/ /usr/share/nginx/html/styles/
+COPY src/ /usr/share/nginx/html/src/
 
 EXPOSE 80

@@ -1,179 +1,111 @@
 # CineVerse — Explorador de Séries
 
-Aplicação web desenvolvida para o desafio individual do Bootcamp.
-
-## Autor
-
-Nome completo: Guilherme Lemos Felipe
-
-Matrícula: 22552371
-
-## Descrição
-
-O CineVerse é uma aplicação web que permite pesquisar séries e visualizar informações sobre diferentes títulos de entretenimento.
-
-O usuário pode pesquisar uma série, consultar seus dados e clicar em um resultado para visualizar suas temporadas e episódios.
-
-A aplicação utiliza uma API pública e apresenta as informações em uma interface moderna, organizada e responsiva.
-
-## API utilizada
-
-TVmaze API
-
-Documentação:
-
-https://www.tvmaze.com/api
-
-Endpoints utilizados:
-
-- Busca de séries:
-  https://api.tvmaze.com/search/shows?q=termo
-
-- Lista inicial de séries:
-  https://api.tvmaze.com/shows?page=1
-
-- Informações de uma série:
-  https://api.tvmaze.com/shows/{id}
-
-- Episódios de uma série:
-  https://api.tvmaze.com/shows/{id}/episodes
-
-A API não exige chave de autenticação.
-
-## Tecnologias utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-- Fetch API
-- Git
-- GitHub
-- GitHub Pages
+CineVerse é uma aplicação web acadêmica para explorar séries de televisão. A interface permite pesquisar títulos, consultar informações e episódios e organizar séries favoritas.
 
 ## Funcionalidades
 
-- Pesquisa de séries por nome.
-- Exibição de título, capa, ano de estreia e nota.
-- Exibição dos gêneros das séries.
-- Sugestões de pesquisa rápida.
-- Cards clicáveis.
-- Janela de detalhes da série.
-- Exibição de temporadas.
-- Exibição de episódios.
-- Número e nome dos episódios.
-- Data de exibição e duração.
-- Imagens dos episódios quando disponíveis.
-- Abertura e fechamento das temporadas.
-- Tratamento de erros de conexão.
-- Mensagem quando nenhum resultado é encontrado.
-- Layout responsivo para computador e celular.
+- Pesquisa de séries por nome usando a API pública TVmaze.
+- Sugestões de séries populares ao abrir a aplicação.
+- Exibição de capa, ano de estreia, avaliação e gêneros nos resultados.
+- Detalhes da série, incluindo descrição, idioma e status.
+- Temporadas e episódios, com data, duração e imagens quando disponíveis.
+- Cadastro e remoção de séries favoritas, armazenadas no Supabase.
+- Mensagens de carregamento, erro e ausência de resultados.
+- Interface responsiva com tema escuro e detalhes roxos.
+
+> Cadastro de usuário e login não estão implementados na versão atual. O Supabase é usado pelo código para persistir favoritos.
+
+## Tecnologias
+
+- HTML, CSS e JavaScript.
+- [TVmaze API](https://www.tvmaze.com/api) para dados de séries e episódios.
+- Supabase para persistência dos favoritos.
+- Vitest para testes automatizados.
+- GitHub Actions para executar os testes em Pull Requests e atualizações na branch `main`.
+- Docker e Nginx para servir o site em um container.
 
 ## Estrutura do projeto
 
-cineverse-app/
-
+```text
+cineverse/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── src/
+│   ├── app.js
+│   ├── services/
+│   │   ├── supabase.js
+│   │   └── tvmaze.js
+│   ├── utils/
+│   │   └── format.js
+│   └── utils.js
+├── styles/
+│   └── style.css
+├── tests/
+│   └── utils.test.js
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
 ├── index.html
-
-├── style.css
-
-├── script.js
-
+├── package.json
+├── package-lock.json
 └── README.md
-
-### index.html
-
-Arquivo responsável pela estrutura da aplicação.
-
-Contém o cabeçalho, formulário de busca, área de resultados, janela de detalhes, temporadas e rodapé.
-
-### style.css
-
-Arquivo responsável pelo visual da aplicação.
-
-Define cores, espaçamentos, cards, modal, temporadas, episódios e responsividade.
-
-### script.js
-
-Arquivo responsável pela interação do usuário.
-
-Realiza as buscas na API, exibe os resultados e consulta os episódios de cada série.
-
-## Como executar localmente
-
-1. Clone o repositório:
-
-git clone URL_DO_SEU_REPOSITORIO
-
-2. Entre na pasta do projeto:
-
-cd cineverse-app
-
-3. Abra o arquivo index.html no navegador.
-
-Também é possível utilizar a extensão Live Server no Visual Studio Code.
-
-## Executar com Docker
-
-Na raiz do repositório clonado, onde index.html está na raiz, construa a imagem e inicie o container:
-
-```bash
-docker build -t astrinho21/cineverse:latest .
-docker run --rm -p 8080:80 astrinho21/cineverse:latest
 ```
 
-A aplicação ficará disponível em http://localhost:8080.
+## Executar localmente
 
-Neste workspace, os arquivos da aplicação estão dentro de CineVerse/. Para construir a imagem a partir dele, use:
+1. Instale o [Node.js](https://nodejs.org/) e o Git.
+2. Clone o repositório e entre na pasta:
+
+   ```bash
+   git clone https://github.com/guilhermelemoss-lang/cineverse.git
+   cd cineverse
+   ```
+
+3. Sirva os arquivos com um servidor local. Por exemplo, com a extensão Live Server do Visual Studio Code, abra `index.html` usando **Open with Live Server**. Como alternativa, se Python estiver instalado:
+
+   ```bash
+   python -m http.server 8000
+   ```
+
+   Acesse `http://localhost:8000` no navegador. Servir a página por HTTP evita limitações que podem ocorrer ao abrir diretamente o arquivo HTML.
+
+O site consulta TVmaze e Supabase pela internet. O funcionamento dessas integrações depende da disponibilidade desses serviços e da configuração existente do projeto.
+
+## Testes automatizados
+
+Na pasta do projeto, instale as dependências e execute os testes:
 
 ```bash
-docker build --build-arg APP_DIR=CineVerse -t astrinho21/cineverse:latest .
+npm install
+npm test
 ```
 
-## Publicar no Docker Hub
+## Docker
 
-Imagem publicada: https://hub.docker.com/r/astrinho21/cineverse
+Baixe a imagem publicada e inicie o container:
 
 ```bash
-docker login
-docker build -t astrinho21/cineverse:latest .
-docker push astrinho21/cineverse:latest
+docker pull astrinho21/cineversee:latest
+docker run -d -p 8080:80 --name cineverse-site astrinho21/cineversee:latest
 ```
 
-Para baixar e executar a imagem publicada:
+O site ficará disponível em `http://localhost:8080`.
+
+Para parar e remover o container:
 
 ```bash
-docker pull astrinho21/cineverse:latest
-docker run --rm -p 8080:80 astrinho21/cineverse:latest
+docker stop cineverse-site
+docker rm cineverse-site
 ```
 
-## Como publicar no GitHub Pages
+## Integração contínua
 
-1. Crie um repositório público no GitHub.
-
-2. Envie os arquivos do projeto.
-
-3. Acesse Settings → Pages.
-
-4. Em Source, selecione Deploy from a branch.
-
-5. Escolha a branch main e a pasta /root.
-
-6. Clique em Save.
-
-7. Aguarde a publicação.
-
-O endereço ficará semelhante a:
-
-https://SEU-USUARIO.github.io/cineverse-app/
+O workflow em `.github/workflows/ci.yml` é executado em Pull Requests direcionados à branch `main` e em atualizações nessa branch. Ele configura o Node.js, instala as dependências com `npm ci` e executa `npm test`.
 
 ## Links do projeto
 
-- **Aplicação:** https://guilhermelemoss-lang.github.io/cineverse/
-- **Repositório GitHub:** https://github.com/guilhermelemoss-lang/cineverse
-- **Repositório Docker Hub:** https://hub.docker.com/repository/docker/astrinho21/cineverse
+- Repositório GitHub: [guilhermelemoss-lang/cineverse](https://github.com/guilhermelemoss-lang/cineverse)
+- Docker Hub: [astrinho21/cineversee](https://hub.docker.com/r/astrinho21/cineversee)
 
-## Conclusão
-
-O CineVerse demonstra a utilização de tecnologias frontend para desenvolver uma aplicação web funcional.
-
-O projeto utiliza uma API pública para pesquisar séries e exibir informações de temporadas e episódios, apresentando os dados de forma organizada, responsiva e acessível ao usuário.
+Não incluí um endereço do GitHub Pages porque não encontrei um endereço publicado ou configuração que permitisse confirmá-lo nos arquivos do projeto.
