@@ -1,0 +1,13 @@
+
+{
+  "name": "cineverse",
+  "version": "1.0.0",
+  "description": "CineVerse - Explorador de Séries",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  }
+}

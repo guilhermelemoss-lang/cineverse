@@ -1,11 +1,10 @@
-# CineVerse — Explorador de Séries
+﻿# CineVerse — Explorador de Séries
 
 Aplicação web desenvolvida para o desafio individual do Bootcamp.
 
 ## Autor
 
 Nome completo: Guilherme Lemos Felipe
-
 Matrícula: 22552371
 
 ## Descrição
@@ -21,27 +20,17 @@ A aplicação utiliza uma API pública e apresenta as informações em uma inter
 TVmaze API
 
 Documentação:
-
 https://www.tvmaze.com/api
 
 Endpoints utilizados:
-
-- Busca de séries:
-  https://api.tvmaze.com/search/shows?q=termo
-
-- Lista inicial de séries:
-  https://api.tvmaze.com/shows?page=1
-
-- Informações de uma série:
-  https://api.tvmaze.com/shows/{id}
-
-- Episódios de uma série:
-  https://api.tvmaze.com/shows/{id}/episodes
+- Busca de séries: https://api.tvmaze.com/search/shows?q=termo
+- Lista inicial de séries: https://api.tvmaze.com/shows?page=1
+- Informações de uma série: https://api.tvmaze.com/shows/{id}
+- Episódios de uma série: https://api.tvmaze.com/shows/{id}/episodes
 
 A API não exige chave de autenticação.
 
 ## Tecnologias utilizadas
-
 - HTML5
 - CSS3
 - JavaScript
@@ -51,7 +40,6 @@ A API não exige chave de autenticação.
 - GitHub Pages
 
 ## Funcionalidades
-
 - Pesquisa de séries por nome.
 - Exibição de título, capa, ano de estreia e nota.
 - Exibição dos gêneros das séries.
@@ -71,46 +59,45 @@ A API não exige chave de autenticação.
 ## Estrutura do projeto
 
 cineverse-app/
-
 ├── index.html
-
-├── style.css
-
-├── script.js
-
+├── src/
+│   ├── app.js
+│   ├── utils.js
+│   ├── services/
+│   │   ├── supabase.js
+│   │   └── tvmaze.js
+│   └── utils/
+│       └── format.js
+├── styles/
+│   └── style.css
+├── tests/
+│   └── utils.test.js
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── Dockerfile
+├── package.json
+├── package-lock.json
 └── README.md
-
-### index.html
-
-Arquivo responsável pela estrutura da aplicação.
-
-Contém o cabeçalho, formulário de busca, área de resultados, janela de detalhes, temporadas e rodapé.
-
-### style.css
-
-Arquivo responsável pelo visual da aplicação.
-
-Define cores, espaçamentos, cards, modal, temporadas, episódios e responsividade.
-
-### script.js
-
-Arquivo responsável pela interação do usuário.
-
-Realiza as buscas na API, exibe os resultados e consulta os episódios de cada série.
 
 ## Como executar localmente
 
 1. Clone o repositório:
-
-git clone URL_DO_SEU_REPOSITORIO
+   git clone URL_DO_SEU_REPOSITORIO
 
 2. Entre na pasta do projeto:
-
-cd cineverse-app
+   cd cineverse-app
 
 3. Abra o arquivo index.html no navegador.
 
 Também é possível utilizar a extensão Live Server no Visual Studio Code.
+
+Para executar os testes:
+
+```bash
+npm ci
+npm test
+```
 
 ## Executar com Docker
 
@@ -123,57 +110,15 @@ docker run --rm -p 8080:80 astrinho21/cineverse:latest
 
 A aplicação ficará disponível em http://localhost:8080.
 
-Neste workspace, os arquivos da aplicação estão dentro de CineVerse/. Para construir a imagem a partir dele, use:
-
-```bash
-docker build --build-arg APP_DIR=CineVerse -t astrinho21/cineverse:latest .
-```
-
-## Publicar no Docker Hub
-
-Imagem publicada: https://hub.docker.com/r/astrinho21/cineverse
-
-```bash
-docker login
-docker build -t astrinho21/cineverse:latest .
-docker push astrinho21/cineverse:latest
-```
-
-Para baixar e executar a imagem publicada:
-
-```bash
-docker pull astrinho21/cineverse:latest
-docker run --rm -p 8080:80 astrinho21/cineverse:latest
-```
-
-## Como publicar no GitHub Pages
+## Publicar no GitHub Pages
 
 1. Crie um repositório público no GitHub.
-
 2. Envie os arquivos do projeto.
-
 3. Acesse Settings → Pages.
-
 4. Em Source, selecione Deploy from a branch.
-
 5. Escolha a branch main e a pasta /root.
-
 6. Clique em Save.
-
 7. Aguarde a publicação.
 
 O endereço ficará semelhante a:
-
 https://SEU-USUARIO.github.io/cineverse-app/
-
-## Links do projeto
-
-- **Aplicação:** https://guilhermelemoss-lang.github.io/cineverse/
-- **Repositório GitHub:** https://github.com/guilhermelemoss-lang/cineverse
-- **Repositório Docker Hub:** https://hub.docker.com/repository/docker/astrinho21/cineverse
-
-## Conclusão
-
-O CineVerse demonstra a utilização de tecnologias frontend para desenvolver uma aplicação web funcional.
-
-O projeto utiliza uma API pública para pesquisar séries e exibir informações de temporadas e episódios, apresentando os dados de forma organizada, responsiva e acessível ao usuário.
